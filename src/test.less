@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, "Baskerville Old Face", georgia, palatino, "book antiqua", "palatino linotype", serif !important;
+  overflow: auto;
+
+  header {
+    background-image: url("/images/cropped-20180615_232133.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover; 
+    height: 306px;
+
+    .navbar {
+      top: 250px;
+      z-index: 1;
+
+      &.fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        background-color: #f8f9fa !important;
+        border: none;
+        padding: 0;
+      }
+
+      .nav-link {
+        text-align: center;
+      }
+      
+      @media(min-width: 992px) {
+        .nav-link { 
+          padding-left: 1em !important;
+          padding-right: 1em !important;
+        }
+      }
+    }
+  }
+
+  .container { 
+    .headline {
+      padding-bottom: 40px;
+    }
+
+    position: relative;
+    top: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    h1 {
+      padding-top: 0px;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+
+      .first-letter {
+        font-size: 1.4em;
+      }
+    }
+
+    hr {
+      border-top: 1px solid black;
+      margin-top: 0;
+      width: 75%;
+    }
+
+    h2 { 
+      
+    }
+
+    ul.kitchen-list {
+      list-style: none;
+      padding: 0;
+      text-align: initial;
+
+      li { 
+        padding: 20px;
+        
+        .kitchen-info {
+          font-size: 0.9em;
+          font-style: italic;
+        }
+      }
+    }
+
+    .reviews {
+      p {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  footer {
+    border-top: 1px solid #ccc;
+
+    a, a:hover {
+      color: black;
+    }
+  }
+
+  .au-enter {
+    opacity: 0!important;
+  }
+    
+  .au-enter-active {
+    -webkit-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
+  }
+    
+  .au-leave-active {
+    -webkit-animation: fadeOut 0.3s;
+    animation: fadeOut 0.3s;
+  }
+  
+  /* CSS3-Animations */
+  @-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+    
+  @keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+    
+  @-webkit-keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+    
+  @keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+}
+

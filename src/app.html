@@ -1,0 +1,67 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="test.css"></require>
+  
+  <header>
+    <nav ref="navbar" class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column justify-content-center">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div ref="navbarCollapse" class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto">
+          <li repeat.for="nav of router.navigation" class="nav-item ${nav.isActive ? 'active' : ''} ${isDropdown(nav) ? 'dropdown' : ''}">
+            <a if.bind="isLink(nav)" class="nav-link" href.bind="nav.href" mouseup.delegate="navItemClicked()">${nav.title}</a>
+            
+            <a if.bind="isDropdown(nav)" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">${nav.title}</a>
+            <div if.bind="isDropdown(nav)" class="dropdown-menu">
+              <a repeat.for="dropdownItem of dropdownItems(nav)" class="dropdown-item" href.bind="dropdownItem.href" mouseup.delegate="navItemClicked()">${dropdownItem.title}</a>
+            </div>
+          </li>
+        </ul>  
+      </div>
+      ${navScrollTop}
+    </nav>
+  </header>
+
+  <div class="container">
+    <router-view swap-order="after"></router-view>
+  </div>
+
+  <footer>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col">
+          <h4>Kontakt</h4>
+          <p>
+            Lorentzen Food<br />
+            Byhøjen 5, st.tv.<br />
+            2720 Vanløse<br />
+          </p>
+          <p>
+            CVR: 27113834
+          </p>
+        </div>
+
+        <div class="col">
+          <p>
+            <i class="fas fa-envelope"></i>: <a href="mailto:lorentzenfood@gmail.com">lorentzenfood@gmail.com</a>
+          </p>
+
+          <p>
+            <i class="fas fa-phone"></i>: <a href="tel:+45 53 388 488">+45 53 388 488</a>
+          </p>
+
+          <p>
+            <a href="https://www.facebook.com/lorentzenfood"><i class="fab fa-facebook"></i></a> &nbsp; &nbsp;
+            <a href="https://www.instagram.com/lorentzenfood"><i class="fab fa-instagram"></i></a>
+          </p>
+        </div> 
+
+      </div>
+
+    </div>
+  </footer>
+</template>
