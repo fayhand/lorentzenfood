@@ -2,20 +2,22 @@ import "bootstrap";
 import { RouterConfiguration, Router, NavModel } from "aurelia-router";
 
 export class App {
-  protected router: Router; 
+  protected router: Router;
   protected navbar: HTMLElement;
   private scrollEventHandler = (event: UIEvent) => { this.scrollEventHandlerMethod(event); };
 
   private configureRouter(config: RouterConfiguration, router: Router): void {
     this.router = router;
     config.title = "Lorentzen Food";
+    config.options.pushState = true;
+    config.options.root = '/';
     config.map([
-      { route: ["", "home"],      name: "home",             moduleId: "home/index",             nav: true,    title: "Forside" },
-      { route: "about-me",        name: "about-me",         moduleId: "about-me/index",         nav: true,    title: "Om mig" },
-      { route: "menu",            name: "menu",             moduleId: "menu/index",                   nav: true,    title: "Menuer",          /*settings: { type: "dropdown", name: "menu", }*/ },
+      { route: ["", "forside", "home"], name: "home", moduleId: "home/index", nav: true, title: "Forside" },
+      { route: ["menuer", "menus"], name: "menu", moduleId: "menu/index", nav: true, title: "Menuer",          /*settings: { type: "dropdown", name: "menu", }*/ },
       // { route: "menu/vegetarian", name: "menu-vegetarian",  moduleId: "menu/vegetarian/index",  nav: true,    title: "Vegetar menu",    settings: { type: "dropdown-item", parent: "menu" } },
       // { route: "menu/gourmet",    name: "menu-gourmet",     moduleId: "menu/gourmet/index",     nav: true,    title: "Gourmet menu",    settings: { type: "dropdown-item", parent: "menu" } },
-      { route: "reviews",         name: "reviews",          moduleId: "reviews/index",          nav: true,    title: "Kundeanmeldelser" }
+      { route: ["anmeldelser", "kundeanmeldelser", "reviews"], name: "reviews", moduleId: "reviews/index", nav: true, title: "Kundeanmeldelser" },
+      { route: ["om-mig", "about-me"], name: "about-me", moduleId: "about-me/index", nav: true, title: "Om mig" },
     ]);
   }
 
@@ -34,7 +36,7 @@ export class App {
   }
 
   protected navItemClicked() {
-     $(".navbar-collapse").collapse("hide");
+    $(".navbar-collapse").collapse("hide");
   }
 
   private attached() {
@@ -46,8 +48,8 @@ export class App {
   }
 
   private scrollEventHandlerMethod(event: UIEvent): void {
-    if (window.scrollY >= 250) {
-        this.navbar.classList.add("fixed");
+    if (window.pageYOffset >= 250) {
+      this.navbar.classList.add("fixed");
     }
     else {
       this.navbar.classList.remove("fixed");

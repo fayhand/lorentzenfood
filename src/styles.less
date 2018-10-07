@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, "Baskerville Old Face", georgia, palatino, "book antiqua", "palatino linotype", serif !important;
+  font-family: 'Open Sans', sans-serif !important;//Arial, "Baskerville Old Face", georgia, palatino, "book antiqua", "palatino linotype", serif !important;
   overflow: auto;
 
   header {
@@ -49,12 +49,13 @@ body {
     padding-bottom: 25px;
 
     h1 {
+      font-family: 'Montserrat', sans-serif;
       padding-top: 0px;
       padding-bottom: 5px;
       text-transform: uppercase;
 
-      .first-letter {
-        font-size: 1.4em;
+      &:first-letter {
+        font-size: 1.2em;
       }
     }
 
@@ -65,7 +66,8 @@ body {
     }
 
     h2 { 
-      
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
     }
 
     ul.kitchen-list {
@@ -104,33 +106,38 @@ body {
     
   .au-enter-active {
     -webkit-animation: fadeIn 0.3s;
+    -moz-animation: fadeIn 0.3s;
     animation: fadeIn 0.3s;
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
   }
     
   .au-leave-active {
     -webkit-animation: fadeOut 0.3s;
+    -moz-animation: fadeOut 0.3s;
     animation: fadeOut 0.3s;
   }
   
   /* CSS3-Animations */
   @-webkit-keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+    0%   { opacity: 0.1; }
+    100% { opacity: 0.9; }
   }
     
   @keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+    0%   { opacity: 0.1; }
+    100% { opacity: 0.9; }
   }
     
   @-webkit-keyframes fadeOut {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
+    0%   { opacity: 0.9; }
+    100% { opacity: 0.1; }
   }
     
   @keyframes fadeOut {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
+    0%   { opacity: 0.9; }
+    100% { opacity: 0.1; }
   }
 }
 

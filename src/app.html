@@ -1,6 +1,6 @@
 <template>
   <require from="bootstrap/css/bootstrap.css"></require>
-  <require from="test.css"></require>
+  <require from="styles.css"></require>
   
   <header>
     <nav ref="navbar" class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column justify-content-center">
@@ -8,8 +8,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div ref="navbarCollapse" class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto bg-light">
           <li repeat.for="nav of router.navigation" class="nav-item ${nav.isActive ? 'active' : ''} ${isDropdown(nav) ? 'dropdown' : ''}">
             <a if.bind="isLink(nav)" class="nav-link" href.bind="nav.href" mouseup.delegate="navItemClicked()">${nav.title}</a>
             
@@ -20,7 +20,6 @@
           </li>
         </ul>  
       </div>
-      ${navScrollTop}
     </nav>
   </header>
 
