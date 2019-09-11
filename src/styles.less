@@ -3,9 +3,9 @@ body {
   overflow: auto;
 
   header {
-    background-image: url("/images/cropped-20180615_232133.jpg");
+    background-image: url("/images/forret.jpg");
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-size: cover; 
     height: 306px;
 
@@ -88,6 +88,12 @@ body {
     .reviews {
       p {
         padding-bottom: 20px;
+      }
+    }
+
+    img.img-me-wide {
+      @media(max-width: 991px) and (min-width: 769px) {
+        width: 530px !important;
       }
     }
   }
